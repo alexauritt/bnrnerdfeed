@@ -8,10 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+@class RSSChannel;
+
 @interface ListViewController : UITableViewController
 {
   NSURLConnection *connection;
   NSMutableData *xmlData;
+  RSSChannel *channel;
 }
 
 - (void)fetchEntries;

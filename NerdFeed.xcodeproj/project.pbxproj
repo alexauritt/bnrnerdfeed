@@ -17,6 +17,7 @@
 		A7DC62C91702241700D2DEAE /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7DC62C81702241700D2DEAE /* Default@2x.png */; };
 		A7DC62CB1702241800D2DEAE /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7DC62CA1702241800D2DEAE /* Default-568h@2x.png */; };
 		A7DC62D31702243D00D2DEAE /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7DC62D21702243D00D2DEAE /* ListViewController.m */; };
+		A7DC62D617037C5500D2DEAE /* RSSChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = A7DC62D517037C5500D2DEAE /* RSSChannel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,8 @@
 		A7DC62CA1702241800D2DEAE /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		A7DC62D11702243D00D2DEAE /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListViewController.h; path = NerdFeed/ListViewController.h; sourceTree = "<group>"; };
 		A7DC62D21702243D00D2DEAE /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListViewController.m; path = NerdFeed/ListViewController.m; sourceTree = "<group>"; };
+		A7DC62D417037C5500D2DEAE /* RSSChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RSSChannel.h; path = NerdFeed/RSSChannel.h; sourceTree = "<group>"; };
+		A7DC62D517037C5500D2DEAE /* RSSChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RSSChannel.m; path = NerdFeed/RSSChannel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +59,8 @@
 			children = (
 				A7DC62D11702243D00D2DEAE /* ListViewController.h */,
 				A7DC62D21702243D00D2DEAE /* ListViewController.m */,
+				A7DC62D417037C5500D2DEAE /* RSSChannel.h */,
+				A7DC62D517037C5500D2DEAE /* RSSChannel.m */,
 				A7DC62BA1702241700D2DEAE /* NerdFeed */,
 				A7DC62B31702241700D2DEAE /* Frameworks */,
 				A7DC62B21702241700D2DEAE /* Products */,
@@ -173,6 +178,7 @@
 				A7DC62C11702241700D2DEAE /* main.m in Sources */,
 				A7DC62C51702241700D2DEAE /* NerdfeedAppDelegate.m in Sources */,
 				A7DC62D31702243D00D2DEAE /* ListViewController.m in Sources */,
+				A7DC62D617037C5500D2DEAE /* RSSChannel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,7 @@
 //
 
 #import "ListViewController.h"
+#import "RSSChannel.h"
 
 @implementation ListViewController
 
@@ -61,8 +62,23 @@
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection{
-  NSString *xmlCheck = [[NSString alloc] initWithData:xmlData encoding:NSUTF8StringEncoding];
-  NSLog(@"xmlCheck = %@", xmlCheck);
+//  NSString *xmlCheck = [[NSString alloc] initWithData:xmlData encoding:NSUTF8StringEncoding];
+//  NSLog(@"xmlCheck = %@", xmlCheck);
+  NSXMLParser *parser = [[NSXMLParser alloc] initWithData:xmlData];
+  [parser setDelegate:self];
+  [parser parse];
+  xmlData = nil;
+  connection = nil;
+  [[self tableView] reloadData];
 }
 
+- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict
+{
+  NSLog(@"%@ found a %@ element", self, elementName);
+  if ([elementName isEqual:@"channe"]) {
+    channel = [[RSSChannel alloc] init];
+    [channel setParentParserDelegate:self];
+    [parser setDelegate:channel];
+  }
+}
 @end
