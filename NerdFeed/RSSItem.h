@@ -1,5 +1,5 @@
 //
-//  RSSChannel.h
+//  RSSItem.h
 //  NerdFeed
 //
 //  Created by Alexander Auritt on 3/27/13.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface RSSChannel : NSObject<NSXMLParserDelegate>
+@interface RSSItem : NSObject<NSXMLParserDelegate>
 {
   NSMutableString *currentString;
 }
@@ -16,7 +16,6 @@
 @property (nonatomic, weak) id parentParserDelegate;
 
 @property (nonatomic, strong) NSString *title;
-@property (nonatomic, strong) NSString *infoString;
-@property (nonatomic, readonly, strong) NSMutableArray *items;
+@property (nonatomic, strong) NSString *link;
 
 @end

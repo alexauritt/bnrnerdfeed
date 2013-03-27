@@ -70,6 +70,8 @@
   xmlData = nil;
   connection = nil;
   [[self tableView] reloadData];
+  
+  NSLog(@"%@\n %@\n %@\n", channel, [channel title], [channel infoString]);
 }
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict
