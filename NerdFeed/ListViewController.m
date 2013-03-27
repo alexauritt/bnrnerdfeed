@@ -19,4 +19,26 @@
 {
   return nil;
 }
+
+- (id)initWithStyle:(UITableViewStyle)style
+{
+  self = [super initWithStyle:style];
+  if (self) {
+    [self fetchEntries];
+  }
+  return self;
+}
+
+- (void)fetchEntries
+{
+  xmlData = [[NSMutableData alloc] init];
+  NSURL *url = [NSURL URLWithString:
+    @"http://forums.bignerdranch.com/smartfeed.php?"
+    @"limit=1_DAY&sort_by=standard&feed_type=RSS2.0&feed_style=COMPACT"];
+  
+//  NSURL *url = [NSURL URLWithString:@"http://www.apple.com/pr/feeds/pr.rss"];
+  
+  NSURLRequest *req = [NSURLRequest requestWithURL:url];
+  connection = [[NSURLConnection alloc] initWithRequest:req delegate:self startImmediately:YES];
+}
 @end

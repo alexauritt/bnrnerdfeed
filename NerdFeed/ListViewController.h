@@ -9,6 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @interface ListViewController : UITableViewController
+{
+  NSURLConnection *connection;
+  NSMutableData *xmlData;
+}
+
+- (void)fetchEntries;
+
 @end
 
 
