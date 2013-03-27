@@ -41,4 +41,28 @@
   NSURLRequest *req = [NSURLRequest requestWithURL:url];
   connection = [[NSURLConnection alloc] initWithRequest:req delegate:self startImmediately:YES];
 }
+
+- (void)connection:(NSURLConnection *)conn didReceiveData:(NSData *)data
+{
+  [xmlData appendData:data];
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+  connection = nil;
+  xmlData = nil;
+  NSString *errorString = [NSString stringWithFormat:@"Fetch failed: %@", [error localizedDescription]];
+  UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error"
+                                               message:errorString
+                                              delegate:nil
+                                     cancelButtonTitle:@"OK"
+                                     otherButtonTitles:nil];
+  [av show];
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection{
+  NSString *xmlCheck = [[NSString alloc] initWithData:xmlData encoding:NSUTF8StringEncoding];
+  NSLog(@"xmlCheck = %@", xmlCheck);
+}
+
 @end
