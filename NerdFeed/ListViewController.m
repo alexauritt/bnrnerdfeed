@@ -9,8 +9,10 @@
 #import "ListViewController.h"
 #import "RSSChannel.h"
 #import "RSSItem.h"
+#import "WebViewController.h"
 
 @implementation ListViewController
+@synthesize webViewController;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -36,6 +38,17 @@
     [self fetchEntries];
   }
   return self;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  [[self navigationController] pushViewController:webViewController animated:YES];
+  
+  RSSItem *entry = [[channel items] objectAtIndex:[indexPath row]];
+  NSURL *url = [NSURL URLWithString:[entry link]];
+  NSURLRequest *req = [NSURLRequest requestWithURL:url];
+  [[webViewController webView] loadRequest:req];
+  [[webViewController navigationItem] setTitle:[entry title]];
 }
 
 - (void)fetchEntries

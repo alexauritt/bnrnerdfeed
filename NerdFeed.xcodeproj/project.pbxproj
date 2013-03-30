@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A74C503917079CD800AA3457 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A74C503817079CD800AA3457 /* WebViewController.m */; };
 		A7DC62B51702241700D2DEAE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7DC62B41702241700D2DEAE /* UIKit.framework */; };
 		A7DC62B71702241700D2DEAE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7DC62B61702241700D2DEAE /* Foundation.framework */; };
 		A7DC62B91702241700D2DEAE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7DC62B81702241700D2DEAE /* CoreGraphics.framework */; };
@@ -22,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A74C503717079CD800AA3457 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebViewController.h; path = NerdFeed/WebViewController.h; sourceTree = "<group>"; };
+		A74C503817079CD800AA3457 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebViewController.m; path = NerdFeed/WebViewController.m; sourceTree = "<group>"; };
 		A7DC62B11702241700D2DEAE /* NerdFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NerdFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7DC62B41702241700D2DEAE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A7DC62B61702241700D2DEAE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -64,6 +67,8 @@
 				A7DC62D81703951F00D2DEAE /* RSSItem.m */,
 				A7DC62D11702243D00D2DEAE /* ListViewController.h */,
 				A7DC62D21702243D00D2DEAE /* ListViewController.m */,
+				A74C503717079CD800AA3457 /* WebViewController.h */,
+				A74C503817079CD800AA3457 /* WebViewController.m */,
 				A7DC62D417037C5500D2DEAE /* RSSChannel.h */,
 				A7DC62D517037C5500D2DEAE /* RSSChannel.m */,
 				A7DC62BA1702241700D2DEAE /* NerdFeed */,
@@ -185,6 +190,7 @@
 				A7DC62D31702243D00D2DEAE /* ListViewController.m in Sources */,
 				A7DC62D617037C5500D2DEAE /* RSSChannel.m in Sources */,
 				A7DC62D91703951F00D2DEAE /* RSSItem.m in Sources */,
+				A74C503917079CD800AA3457 /* WebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +307,7 @@
 				A7DC62D01702241800D2DEAE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
