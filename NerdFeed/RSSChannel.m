@@ -7,6 +7,7 @@
 //
 
 #import "RSSChannel.h"
+#import "RSSItem.h"
 
 @implementation RSSChannel
 @synthesize items, title, infoString, parentParserDelegate;
@@ -20,7 +21,10 @@
   return self;
 }
 
-- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
+- (void)parser:(NSXMLParser *)parser
+didEndElement:(NSString *)elementName
+  namespaceURI:(NSString *)namespaceURI
+ qualifiedName:(NSString *)qName
 {
   // if we were in an element that we were collcting the string for,
   // this appropriately releases our hold on it and the permanent ivar keeps
@@ -38,7 +42,7 @@ didStartElement:(NSString *)elementName
  qualifiedName:(NSString *)qName
     attributes:(NSDictionary *)attributeDict
 {
-  NSLog(@"\t%@ found a %@ element", self, elementName);
+//  NSLog(@"\t%@ found a %@ element", self, elementName);
   if ([elementName isEqual:@"title"]) {
     currentString = [[NSMutableString alloc] init];
     [self setTitle:currentString];
@@ -46,6 +50,12 @@ didStartElement:(NSString *)elementName
   else if ([elementName isEqual:@"description"]) {
     currentString = [[NSMutableString alloc] init];
     [self setInfoString:currentString];
+  }
+  else if ([elementName isEqual:@"item"]) {
+    RSSItem *entry = [[RSSItem alloc] init];
+    [entry setParentParserDelegate:self];
+    [parser setDelegate:entry];
+    [items addObject:entry];
   }
 }
 

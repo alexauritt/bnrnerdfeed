@@ -11,9 +11,13 @@
 @implementation RSSItem
 @synthesize title, link, parentParserDelegate;
 
--(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict
+-(void)parser:(NSXMLParser *)parser
+didStartElement:(NSString *)elementName
+ namespaceURI:(NSString *)namespaceURI
+qualifiedName:(NSString *)qualifiedName
+   attributes:(NSDictionary *)attributeDict
 {
-  NSLog(@"\t\t@ found a %@", self, elementName);
+//  NSLog(@"\t\t@ found a %@", self, elementName);
   
   if ([elementName isEqual:@"title"]) {
     currentString = [[NSMutableString alloc] init];
@@ -30,7 +34,10 @@
   [currentString appendString:string];
 }
 
--(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
+-(void)parser:(NSXMLParser *)parser
+didEndElement:(NSString *)elementName
+ namespaceURI:(NSString *)namespaceURI
+qualifiedName:(NSString *)qName
 {
   currentString = nil;
   if ([elementName isEqual:@"item"]) {

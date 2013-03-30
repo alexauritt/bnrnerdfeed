@@ -8,17 +8,25 @@
 
 #import "ListViewController.h"
 #import "RSSChannel.h"
+#import "RSSItem.h"
 
 @implementation ListViewController
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-  return 0;
+  return [[channel items] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  return nil;
+  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
+  if (cell == nil) {
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
+  }
+  RSSItem *item = [[channel items] objectAtIndex:[indexPath row]];
+  [[cell textLabel] setText:[item title]];
+  
+  return cell;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -62,8 +70,6 @@
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection{
-//  NSString *xmlCheck = [[NSString alloc] initWithData:xmlData encoding:NSUTF8StringEncoding];
-//  NSLog(@"xmlCheck = %@", xmlCheck);
   NSXMLParser *parser = [[NSXMLParser alloc] initWithData:xmlData];
   [parser setDelegate:self];
   [parser parse];
@@ -71,13 +77,18 @@
   connection = nil;
   [[self tableView] reloadData];
   
-  NSLog(@"%@\n %@\n %@\n", channel, [channel title], [channel infoString]);
+//  NSLog(@"%@\n %@\n %@\n", channel, [channel title], [channel infoString]);
 }
 
-- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict
+- (void)parser:(NSXMLParser *)parser
+didStartElement:(NSString *)elementName
+  namespaceURI:(NSString *)namespaceURI
+ qualifiedName:(NSString *)qName
+    attributes:(NSDictionary *)attributeDict
 {
-  NSLog(@"%@ found a %@ element", self, elementName);
-  if ([elementName isEqual:@"channe"]) {
+
+  if ([elementName isEqual:@"channel"]) {
+    NSLog(@"%@ found a %@ element here in LVC", self, elementName);
     channel = [[RSSChannel alloc] init];
     [channel setParentParserDelegate:self];
     [parser setDelegate:channel];
