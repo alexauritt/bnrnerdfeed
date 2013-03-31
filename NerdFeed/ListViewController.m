@@ -101,7 +101,7 @@ didStartElement:(NSString *)elementName
 {
 
   if ([elementName isEqual:@"channel"]) {
-    NSLog(@"%@ found a %@ element here in LVC", self, elementName);
+//    NSLog(@"%@ found a %@ element here in LVC", self, elementName);
     channel = [[RSSChannel alloc] init];
     [channel setParentParserDelegate:self];
     [parser setDelegate:channel];
